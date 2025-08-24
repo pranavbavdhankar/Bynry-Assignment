@@ -1,19 +1,13 @@
 package com.example.StockFlow.service;
 
 import com.example.StockFlow.dto.InventoryDTO;
-import com.example.StockFlow.dto.Response;
 import com.example.StockFlow.dto.UpdateInventoryDTO;
 import com.example.StockFlow.entity.Inventory;
-import com.example.StockFlow.entity.InventoryHistory;
 import com.example.StockFlow.entity.Product;
 import com.example.StockFlow.entity.Warehouse;
 import com.example.StockFlow.exception.ResourceNotFoundException;
 import com.example.StockFlow.repository.InventoryRepository;
-import com.example.StockFlow.repository.WarehouseRepository;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

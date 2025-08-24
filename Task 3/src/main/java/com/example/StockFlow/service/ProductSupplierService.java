@@ -1,6 +1,5 @@
 package com.example.StockFlow.service;
 
-import com.example.StockFlow.dto.ProductSupplierDTO;
 import com.example.StockFlow.entity.Product;
 import com.example.StockFlow.entity.ProductSupplier;
 import com.example.StockFlow.entity.Supplier;

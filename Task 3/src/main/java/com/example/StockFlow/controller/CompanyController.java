@@ -5,6 +5,7 @@ import com.example.StockFlow.dto.CompanyDTO;
 import com.example.StockFlow.dto.Response;
 import com.example.StockFlow.entity.Company;
 import com.example.StockFlow.service.CompanyService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -44,7 +45,7 @@ public class CompanyController {
 
 //    Create new Company
     @PostMapping
-    public ResponseEntity<Response> createCompany(@RequestBody CompanyDTO companyDTO) {
+    public ResponseEntity<Response> createCompany(@Valid @RequestBody CompanyDTO companyDTO) {
         companyService.createCompany(companyDTO);
         return new ResponseEntity<>(
                 new Response(HttpStatus.CREATED.value(), "Company Added Successfully", LocalDateTime.now()),

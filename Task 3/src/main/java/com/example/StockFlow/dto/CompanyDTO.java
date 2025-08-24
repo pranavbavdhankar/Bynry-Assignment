@@ -19,7 +19,7 @@ public class CompanyDTO {
     private String address;
 
     @NotBlank
-    @Size(min = 10, max = 13)
+    @Size(min = 10, max = 15)
     private String contactNo;
 
     @NotBlank

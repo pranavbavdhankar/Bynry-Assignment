@@ -1,0 +1,412 @@
+{
+	"info": {
+		"_postman_id": "38f939ec-9b4e-4f5e-9178-195fe17199bd",
+		"name": "StockFlow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40926802",
+		"_collection_link": "https://inceptia-7209.postman.co/workspace/4135f9eb-dce1-41dd-9364-c4b84d1c35e4/collection/40926802-38f939ec-9b4e-4f5e-9178-195fe17199bd?action=share&source=collection_link&creator=40926802"
+	},
+	"item": [
+		{
+			"name": "Company API",
+			"item": [
+				{
+					"name": "Add Company",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Bynry\",\r\n  \"address\": \"Pune, Maharashtra, India\",\r\n  \"contactNo\": \"+91-2345678901\",\r\n  \"registeredEmail\": \"contact@bynry.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/company",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"company"
+							]
+						},
+						"description": "It creates a new company.\n\nSchema :  \n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"name\": {\n      \"type\": \"string\",\n      \"description\": \"Company name\"\n    },\n    \"address\": {\n      \"type\": \"string\",\n      \"description\": \"Full address of the company\"\n    },\n    \"contactNo\": {\n      \"type\": \"string\",\n      \"description\": \"Contact number including country code\"\n    },\n    \"registeredEmail\": {\n      \"type\": \"string\",\n      \"format\": \"email\",\n      \"description\": \"Registered email of the company\"\n    }\n  },\n  \"required\": [\"name\", \"address\", \"contactNo\", \"registeredEmail\"]\n}\n\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Companies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/company",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"company"
+							]
+						},
+						"description": "Returns all the companies."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Company By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/company/{id}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"company",
+								"{id}"
+							]
+						},
+						"description": "Get the Company by Id"
+					},
+					"response": []
+				},
+				{
+					"name": "Low Stock Alerts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/company/{companyId}/alerts/low-stock",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"company",
+								"{companyId}",
+								"alerts",
+								"low-stock"
+							]
+						},
+						"description": "Gives all the low-stock alerts for all the warehouses managed by the company."
+					},
+					"response": []
+				}
+			],
+			"description": "The `Company API` folder manages company records and monitors stock levels, providing endpoints to create, read, and track companies and their inventory alerts."
+		},
+		{
+			"name": "Supplier API",
+			"item": [
+				{
+					"name": "Add Supplier",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"id\": \"sup002\",\r\n    \"name\": \"Global Traders Ltd\",\r\n    \"address\": \"123 Business Park, Andheri, Mumbai, Maharashtra, India\",\r\n    \"contactNo\": \"9876543210\",\r\n    \"registeredEmail\": \"contact@globaltraders.com\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/supplier",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"supplier"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Suppliers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/supplier",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"supplier"
+							]
+						},
+						"description": "Returns the list of all the suppliers."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Supplier By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/supplier/5fa4d09f-0227-45d7-8cf9-f0c5ae2ee817",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"supplier",
+								"5fa4d09f-0227-45d7-8cf9-f0c5ae2ee817"
+							]
+						},
+						"description": "Returns the supplier by Id if not found sends 404 - Not Found."
+					},
+					"response": []
+				}
+			],
+			"description": "The `Supplier API` folder manages supplier APIs such as creating and getting all the supplier."
+		},
+		{
+			"name": "Warehouse",
+			"item": [
+				{
+					"name": "Add Warehouse",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Ware House 2\", \r\n    \"companyId\" : \"18b8271b-f800-47a8-920c-fa82276f7a89\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/warehouse",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"warehouse"
+							]
+						},
+						"description": "Creates a new warehouse.\n\nSchema:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"name\": {\n      \"type\": \"string\",\n      \"description\": \"Name of the warehouse\"\n    },\n    \"companyId\": {\n      \"type\": \"string\",\n      \"format\": \"uuid\",\n      \"description\": \"ID of the company this warehouse belongs to\"\n    }\n  },\n  \"required\": [\"name\", \"companyId\"]\n}\n\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Warehouse by Company",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/warehouse/company/{id}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"warehouse",
+								"company",
+								"{id}"
+							]
+						},
+						"description": "Get warehouse by company Id."
+					},
+					"response": []
+				}
+			],
+			"description": "Handles APIs related to creation and retrival of warehouse."
+		},
+		{
+			"name": "Products API",
+			"item": [
+				{
+					"name": "Get All Products By Company",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/products/company/{id}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products",
+								"company",
+								"{id}"
+							]
+						},
+						"description": "Returns All the prodcuts of a company."
+					},
+					"response": []
+				},
+				{
+					"name": "Add product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"companyId\": \"18b8271b-f800-47a8-920c-fa82276f7a89\",\r\n  \"supplierId\": [\"5fa4d09f-0227-45d7-8cf9-f0c5ae2ee817\", \"daaf72e9-5f21-4382-a5c8-4208d3689482\"],\r\n  \"sku\": \"PROD-12345\",\r\n  \"price\": 499.99,\r\n  \"name\": \"Dummy Product Name\",\r\n  \"description\": \"This is a dummy product used for testing purposes.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/products",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products"
+							]
+						},
+						"description": "Adds new product to a company with unique SKU.\n\nSchema:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"companyId\": {\n      \"type\": \"string\",\n      \"format\": \"uuid\",\n      \"description\": \"ID of the company that owns this product\"\n    },\n    \"supplierId\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"string\",\n        \"format\": \"uuid\"\n      },\n      \"description\": \"List of supplier IDs associated with this product\"\n    },\n    \"sku\": {\n      \"type\": \"string\",\n      \"description\": \"Unique Stock Keeping Unit identifier for the product\"\n    },\n    \"price\": {\n      \"type\": \"number\",\n      \"description\": \"Price of the product\"\n    },\n    \"name\": {\n      \"type\": \"string\",\n      \"description\": \"Name of the product\"\n    },\n    \"description\": {\n      \"type\": \"string\",\n      \"description\": \"Detailed description of the product\"\n    }\n  },\n  \"required\": [\"companyId\", \"supplierId\", \"sku\", \"price\", \"name\"]\n}\n\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product By Id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/products/{id}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products",
+								"{id}"
+							]
+						},
+						"description": "Returns the product by Id."
+					},
+					"response": []
+				}
+			],
+			"description": "Handles all the APIs related to Products."
+		},
+		{
+			"name": "Inventory",
+			"item": [
+				{
+					"name": "Add Product To inventory",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"productId\": \"537d8e6e-2768-42cf-b0cc-e56249ad2740\",\r\n  \"warehouseId\": \"59ee2019-3545-4c5b-8089-3734718cd723\",\r\n  \"quantity\": 10,\r\n  \"threshold\": 10,\r\n  \"changeType\": \"INITIAL_STOCK\",\r\n  \"note\": \"Initial stock added\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/inventory",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory"
+							]
+						},
+						"description": "Adds new product to inventory.\n\nSchema:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"productId\": {\n      \"type\": \"string\",\n      \"format\": \"uuid\",\n      \"description\": \"Unique ID of the product\"\n    },\n    \"warehouseId\": {\n      \"type\": \"string\",\n      \"format\": \"uuid\",\n      \"description\": \"Unique ID of the warehouse where stock is held\"\n    },\n    \"quantity\": {\n      \"type\": \"integer\",\n      \"description\": \"Number of items to add or update in stock\"\n    },\n    \"threshold\": {\n      \"type\": \"integer\",\n      \"description\": \"Minimum threshold quantity for alerting low stock\"\n    },\n    \"changeType\": {\n      \"type\": \"string\",\n      \"description\": \"Type of stock change (e.g., INITIAL_STOCK, RESTOCK, SALE)\"\n    },\n    \"note\": {\n      \"type\": \"string\",\n      \"description\": \"Optional note about the stock change\"\n    }\n  },\n  \"required\": [\"productId\", \"warehouseId\", \"quantity\", \"threshold\", \"changeType\"]\n}\n\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Inventory Product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" :\"7de5cf37-9605-4b6b-a741-d7682ac85066\",\r\n  \"quantity\": 9,\r\n  \"threshold\": 10,\r\n  \"changeType\": \"SOLD\",\r\n  \"note\": \"SOLD ONE UNIT\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/inventory",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory"
+							]
+						},
+						"description": "Updates the Inventory.\n\nSchema:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"id\": {\n      \"type\": \"string\",\n      \"format\": \"uuid\",\n      \"description\": \"Unique ID of the inventory record\"\n    },\n    \"quantity\": {\n      \"type\": \"integer\",\n      \"description\": \"Updated quantity of the product\"\n    },\n    \"threshold\": {\n      \"type\": \"integer\",\n      \"description\": \"Minimum threshold quantity for alerting low stock\"\n    },\n    \"changeType\": {\n      \"type\": \"string\",\n      \"description\": \"Type of stock change (e.g., SOLD, RESTOCK, RETURN)\"\n    },\n    \"note\": {\n      \"type\": \"string\",\n      \"description\": \"Optional note about the stock change\"\n    }\n  },\n  \"required\": [\"id\", \"quantity\", \"threshold\", \"changeType\"]\n}\n\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Inventory By Warehouse",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/inventory/warehouse/{warehouseId}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"inventory",
+								"warehouse",
+								"{warehouseId}"
+							]
+						},
+						"description": "Returns all the products in a warehouse."
+					},
+					"response": []
+				}
+			],
+			"description": "Manages all the APIs related to Inventory."
+		}
+	]
+}
